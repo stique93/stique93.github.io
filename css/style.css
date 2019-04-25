@@ -1,0 +1,14 @@
+.social a {
+    text-align: center;
+    width: 460px;
+    height: 46px;
+    float: left;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    margin: 0 10px 10px 0;
+    padding: 6px;
+    color: #000;
+}
+.vk a:hover {background: #5d84ae; color: #fff;}
