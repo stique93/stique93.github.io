@@ -6,16 +6,19 @@ if (location.hash.indexOf("#access_token=") === 0) {
 else {
     console.log("Токен не найден");
 }
+if(localStorage.token){
+    loadFriends();
+    $("#guest").hide;
+}
 
-loadFriends();
 
 function getUrl(method, params) {
     if (!method) throw new Error('Вы не указали метод!');
     params = params || {};
-    params['access_token'] = "59534866b62096664f533b7fb74543322f87b5aa185ab3c3b384da9b78b4362d279380ec67f036a2fa779";//localStorage.token;
+    params['access_token'] = localStorage.token;//"59534866b62096664f533b7fb74543322f87b5aa185ab3c3b384da9b78b4362d279380ec67f036a2fa779";//localStorage.token;
     return 'https://api.vk.com/method/' + method + '?' + $.param(params) + '&v=5.52';
 }
-//https://oauth.vk.com/authorize?client_id=6959312&redirect_uri=vk.com&scope=friends&response_type=token&v=5.52
+//https://oauth.vk.com/authorize?client_id=6959312&redirect_uri=https://stique93.github.io&scope=friends&response_type=token&v=5.52
 function sendRequest(method, params, func) {
     $.ajax({
         url: getUrl(method, params),
@@ -23,7 +26,6 @@ function sendRequest(method, params, func) {
         dataType: 'JSONP',
         success: func
     });
-    console.log(getUrl(method, params));
 }
 
 function loadFriends() {
@@ -32,7 +34,6 @@ function loadFriends() {
         $('#user').html(data.response[0].first_name)
         $('#btnExit').html(' '+'<button type="button" class="btn btn-secondary" onclick="localStorage.clear(); location.reload();">Выйти</button>')
         $("#user")[0].hidden = false;
-        console.log(data);
     });
     sendRequest('friends.search', { count: 5, fields: 'photo_100,online,sex,bdate'}, function (data) {
         friendsList = data.response.items;
@@ -58,7 +59,6 @@ function drawFriends(friends) {
             + '<td>' + online + '</td>'
             + '</tr>';
     }
-    console.log(htmltr);
     $('tbody').html(htmltr);
 }
 
