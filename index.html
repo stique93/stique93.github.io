@@ -20,6 +20,8 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.0.js"
+        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -47,8 +49,6 @@
                     <a href="#" target="_blank"><i class="fab fa-vk fa-2x">Авторизоваться</i></a>
                 </div>
             </div>
-
-
         </div>
         <hr>
     </div>
@@ -56,10 +56,17 @@
         <div class="hero-unit">
             <h1>Привет гость!</h1>
             <p>Для доступа к возможностям приложения пожалуйста аторизуйся.</p>
-            <p id="btn"><a href="http://oauth.vk.com/authorize?client_id=6959312&redirect_uri=https://stique93.github.io&scope=friends&response_type=token&v=5.52" class="btn btn-primary btn-large"><i class="fab fa-vk fa-2x"></i>Авторизоваться &raquo;</a>
+            <p id="btn"><a
+                    href="http://oauth.vk.com/authorize?client_id=6959312&redirect_uri=https://stique93.github.io&scope=friends&response_type=token&v=5.52"
+                    class="btn btn-primary btn-large"><i class="fab fa-vk fa-2x"></i>Авторизоваться &raquo;</a>
             </p>
         </div>
     </div>
+    <table>
+        <tbody></tbody>
+    </table>
+    <input type="text" name="search" id="search">
+    <button id='search' onclick="acceptFilter()">Поиск</button>
     <script src="js/script.js"></script>
 </body>
 
