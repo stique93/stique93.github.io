@@ -4,4 +4,4 @@ if (location.hash.indexOf("#access_token=") === 0) {
     location.hash = "";
     console.log(location.hash);
   }
-  console.log(location.hash + "Привет кабан"); 
+  console.log(location.hash.substring(14, 99) + "Привет кабан"); 
