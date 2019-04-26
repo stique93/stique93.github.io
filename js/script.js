@@ -30,6 +30,7 @@ function loadFriends() {
     //var search = window.document.getElementById('search').value;
     sendRequest('users.get', {fields: 'photo_200'},function (data) {
         $('#user').html(data.response[0].first_name)
+        $('#btnExit').html(' '+'<button type="button" class="btn btn-secondary" onclick="localStorage.clear(); location.reload();">Выйти</button>')
         $("#user")[0].hidden = false;
         console.log(data);
     });
