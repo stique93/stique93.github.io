@@ -3,12 +3,11 @@ if (location.hash.indexOf("#access_token=") === 0) {
     localStorage.session = Date.now() + 86400; //Время жизни токена - 86400 секунд
     location.hash = "";
 }
-else {
-    console.log("Токен не найден");
-}
+
 if(localStorage.token){
     loadFriends();
-    $("#guest").hide;
+    $("#guest").hide();
+    $("#btnAuth").hide();
 }
 
 
@@ -31,8 +30,8 @@ function sendRequest(method, params, func) {
 function loadFriends() {
     //var search = window.document.getElementById('search').value;
     sendRequest('users.get', {fields: 'photo_200'},function (data) {
-        $('#user').html(data.response[0].first_name)
-        $('#btnExit').html(' '+'<button type="button" class="btn btn-secondary" onclick="localStorage.clear(); location.reload();">Выйти</button>')
+        $('#user').html(data.response[0].first_name + " " + data.response[0].last_name);
+        $('#btnExit').html(' '+'<button type="button" class="btn btn-secondary" onclick="localStorage.clear(); location.reload();">Выйти</button>');
         $("#user")[0].hidden = false;
     });
     sendRequest('friends.search', { count: 5, fields: 'photo_100,online,sex,bdate'}, function (data) {
