@@ -3,10 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Приложение</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="script.js"></script>
+    <title>Тестовое задание</title>
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -29,44 +27,21 @@
     <div class="container-fluid padding">
         <div class="row text-center padding vertical-divider">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <i class="fas fa-cat"></i>
-                <h3>Топ 5 друзей ВК</h3>
-                <p></p>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    href="https://stique93.github.io">Авторизироваться через вк</button>
-                <a role="button" href="https://stique93.github.io">Авторизоваться</a>
-                <i class="fa fa-vk" aria-hidden="true"></i>
-                <button type="button" class="btn btn-lg btn-so">
-                    <i class="fab fa-vk"></i>
-                </button>
-                <a role="button" href="https://stique93.github.io">Авторизоваться</a>
-                <button type="button" class="btn btn-lg btn-so">
-                    <i class="fab fa-stack-overflow pr-1"></i>
-                    <span>Stack Overflow</span>
-                </button>
-                <span class="counter">22</span>
-                <div class="social vk">
-                    <a href="#" target="_blank"><i class="fab fa-vk fa-2x">Авторизоваться</i></a>
+                <div class="hero-unit">
+                    <h1>Привет <span id="guest">гость!</span><span id="user" hidden = "true"></span></h1>
+                    <p>Для доступа к возможностям приложения пожалуйста аторизуйся.</p>
+                    <p id="btn"><a
+                            href="http://oauth.vk.com/authorize?client_id=6959312&redirect_uri=https://stique93.github.io&scope=friends&response_type=token&v=5.52"
+                            class="btn btn-primary btn-large"><i class="fab fa-vk fa-2x"></i>Авторизоваться &raquo;</a>
+                    </p>
                 </div>
+                <table>
+                    <tbody></tbody>
+                </table>
             </div>
         </div>
         <hr>
     </div>
-    <div class="container">
-        <div class="hero-unit">
-            <h1>Привет гость!</h1>
-            <p>Для доступа к возможностям приложения пожалуйста аторизуйся.</p>
-            <p id="btn"><a
-                    href="http://oauth.vk.com/authorize?client_id=6959312&redirect_uri=https://stique93.github.io&scope=friends&response_type=token&v=5.52"
-                    class="btn btn-primary btn-large"><i class="fab fa-vk fa-2x"></i>Авторизоваться &raquo;</a>
-            </p>
-        </div>
-    </div>
-    <table>
-        <tbody></tbody>
-    </table>
-    <input type="text" name="search" id="search">
-    <button id='search' onclick="acceptFilter()">Поиск</button>
     <script src="js/script.js"></script>
 </body>
 

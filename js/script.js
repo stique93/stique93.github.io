@@ -12,10 +12,10 @@ loadFriends();
 function getUrl(method, params) {
     if (!method) throw new Error('Вы не указали метод!');
     params = params || {};
-    params['access_token'] = "dfc80b6a02eb68985b44879372c665e6f218e8fee48ec318456ad4107560a3525a86be2227a4ba31f5c01";//localStorage.token;
+    params['access_token'] = "59534866b62096664f533b7fb74543322f87b5aa185ab3c3b384da9b78b4362d279380ec67f036a2fa779";//localStorage.token;
     return 'https://api.vk.com/method/' + method + '?' + $.param(params) + '&v=5.52';
 }
-
+//https://oauth.vk.com/authorize?client_id=6959312&redirect_uri=vk.com&scope=friends&response_type=token&v=5.52
 function sendRequest(method, params, func) {
     $.ajax({
         url: getUrl(method, params),
@@ -27,11 +27,13 @@ function sendRequest(method, params, func) {
 }
 
 function loadFriends() {
-    var search = window.document.getElementById('search').value;
+    //var search = window.document.getElementById('search').value;
     sendRequest('users.get', {fields: 'photo_200'},function (data) {
+        $('#user').html(data.response[0].first_name)
+        $("#user")[0].hidden = false;
         console.log(data);
     });
-    sendRequest('friends.search', { count: 5, fields: 'photo_100,online,sex,bdate', q: search }, function (data) {
+    sendRequest('friends.search', { count: 5, fields: 'photo_100,online,sex,bdate'}, function (data) {
         friendsList = data.response.items;
         drawFriends(friendsList);
     });
