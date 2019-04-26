@@ -11,4 +11,9 @@
     padding: 6px;
     color: #000;
 }
-.vk a:hover {background: #5d84ae; color: #fff;}
+.vk a:hover {
+    background: #5d84ae; color: #fff;
+}
+.btn {
+    font-family: 'Roboto', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
