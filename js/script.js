@@ -11,14 +11,12 @@ if (localStorage.token) {
     $("#msg").hide();
 }
 
-
 function getUrl(method, params) {
     if (!method) throw new Error('Вы не указали метод!');
     params = params || {};
     params['access_token'] = localStorage.token;//"59534866b62096664f533b7fb74543322f87b5aa185ab3c3b384da9b78b4362d279380ec67f036a2fa779";//localStorage.token;
     return 'https://api.vk.com/method/' + method + '?' + $.param(params) + '&v=5.52';
 }
-//https://oauth.vk.com/authorize?client_id=6959312&redirect_uri=https://stique93.github.io&scope=friends&response_type=token&v=5.52
 function sendRequest(method, params, func) {
     $.ajax({
         url: getUrl(method, params),
@@ -84,7 +82,4 @@ function getStatus(status) {
             break;
     }
     return putStatus;
-}
-function acceptFilter() {
-    loadFriends();
 }
