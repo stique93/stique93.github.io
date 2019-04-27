@@ -14,7 +14,7 @@ if (localStorage.token) {
 function getUrl(method, params) {
     if (!method) throw new Error('Вы не указали метод!');
     params = params || {};
-    params['access_token'] = "a6614eebf21a189c9fcd1de2625609f339d173bc8185ebe6281e235b0f69a828af1ae40b2faecef0d4409";//localStorage.token;//"59534866b62096664f533b7fb74543322f87b5aa185ab3c3b384da9b78b4362d279380ec67f036a2fa779";//localStorage.token;
+    params['access_token'] = localStorage.token;
     return 'https://api.vk.com/method/' + method + '?' + $.param(params) + '&v=5.52';
 }
 function sendRequest(method, params, func) {
@@ -27,7 +27,6 @@ function sendRequest(method, params, func) {
 }
 
 function loadFriends() {
-    //var search = window.document.getElementById('search').value;
     sendRequest('users.get', { fields: 'photo_100' }, function (data) {
         $('#user').html(data.response[0].first_name + " " + data.response[0].last_name);
         $('#userAvatar').html('<img src="' + data.response[0].photo_100 + '"/>');
