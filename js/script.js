@@ -30,7 +30,7 @@ function loadFriends() {
     sendRequest('users.get', { fields: 'photo_100' }, function (data) {
         $('#user').html(data.response[0].first_name + " " + data.response[0].last_name);
         $('#userAvatar').html('<img src="' + data.response[0].photo_100 + '"/>');
-        $('#btnExit').html(' ' + '<button type="button" class="btn btn-secondary" onclick="localStorage.clear(); location.reload();">Выйти</button>');
+        $('#btnExit').html(' ' + '<button type="button" class="btn btn-secondary" onclick="goOut()">Выйти</button>');
         $("#user")[0].hidden = false;
     });
     sendRequest('friends.search', { count: 5, fields: 'photo_100,online,sex,bdate' }, function (data) {
@@ -80,4 +80,9 @@ function getStatus(status) {
             break;
     }
     return putStatus;
+}
+
+function goOut(){
+    localStorage.clear(); 
+    location.reload();
 }
