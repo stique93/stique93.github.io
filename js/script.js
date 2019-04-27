@@ -29,7 +29,7 @@ function sendRequest(method, params, func) {
 function loadFriends() {
     //var search = window.document.getElementById('search').value;
     sendRequest('users.get', { fields: 'photo_100' }, function (data) {
-        $('#user').html(data.response[0].first_name + " " + data.response[0].last_name + friend.photo_100);
+        $('#user').html(data.response[0].first_name + " " + data.response[0].last_name + data.response[0].photo_100);
         $('#btnExit').html(' ' + '<button type="button" class="btn btn-secondary" onclick="localStorage.clear(); location.reload();">Выйти</button>');
         $("#user")[0].hidden = false;
     });
