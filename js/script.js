@@ -64,11 +64,11 @@ function drawFriends(friends) {
 function getSex(sex) {
     var putSex = '';
     switch (sex) {
-        case 0: putSex = 'unknown';
+        case 0: putSex = '<i class="fas fa-restroom"></i>';
             break;
-        case 1: putSex = 'female';
+        case 1: putSex = '<i class="fas fa-female"></i>';
             break;
-        case 2: putSex = 'male';
+        case 2: putSex = '<i class="fas fa-male"></i>';
             break;
     }
     return putSex;
